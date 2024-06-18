@@ -11,6 +11,9 @@ require'nvim-treesitter.configs'.setup {
 
   -- List of parsers to ignore installing (or "all")
   --
+  indent = {
+    enable = true,
+  },
 
   highlight = {
     enable = true,

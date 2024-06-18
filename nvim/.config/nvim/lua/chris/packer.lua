@@ -27,6 +27,10 @@ return require('packer').startup(function(use)
     -- context aware hovers
     use "lewis6991/hover.nvim"
 
+    use 'sheerun/vim-polyglot'
+
+    use 'windwp/nvim-autopairs'
+
     -- The breadcrumbs
     use({
         "utilyre/barbecue.nvim",
