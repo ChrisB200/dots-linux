@@ -161,6 +161,11 @@ symbol = ""
 style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
+[conda]
+symbol = " "
+style = "bg:teal"
+format = '[[ $symbol$environment ](fg:base bg:teal)]($style)'
+
 [python]
 symbol = ""
 style = "bg:teal"
