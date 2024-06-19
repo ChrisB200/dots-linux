@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Name the session after the directory name
+session=$(basename "$PWD" | tr . -)
+
+if [[ -z "$TMUX" ]]; then
+    tmux attach-session -t "$session" || tmux new-session -s "$session"
+else
+    tmux switch-client -t "$session" || tmux new-session -ds "$session" && tmux switch-client -t "$session"
+fi
+

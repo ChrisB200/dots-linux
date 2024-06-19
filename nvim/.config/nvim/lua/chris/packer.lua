@@ -1,12 +1,12 @@
 local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+    local fn = vim.fn
+    local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+    if fn.empty(fn.glob(install_path)) > 0 then
+        fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+        vim.cmd [[packadd packer.nvim]]
+        return true
+    end
+    return false
 end
 
 local packer_bootstrap = ensure_packer()
@@ -72,7 +72,7 @@ return require('packer').startup(function(use)
 
     -- These optional plugins should be loaded directly because of a bug in Packer lazy loading
     use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
-    
+
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     use('theprimeagen/harpoon')
     use('mbbill/undotree')
@@ -105,8 +105,8 @@ return require('packer').startup(function(use)
     }
 
     use {
-  "ray-x/lsp_signature.nvim",
-}
+        "ray-x/lsp_signature.nvim",
+    }
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
