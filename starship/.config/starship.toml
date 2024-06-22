@@ -18,6 +18,7 @@ $php\
 $java\
 $kotlin\
 $haskell\
+$conda\
 $python\
 [](fg:teal bg:blue)\
 $docker_context\
@@ -162,14 +163,15 @@ style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [conda]
-symbol = " "
-style = "bg:teal"
-format = '[[ $symbol$environment ](fg:base bg:teal)]($style)'
+symbol = ""
+style = "bg:mantle"
+format = '[[ $symbol$environment ($python_version) ](fg:base bg:teal)]($style)'
 
 [python]
 symbol = ""
 style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+disabled = false
 
 [docker_context]
 symbol = ""
@@ -193,3 +195,4 @@ vimcmd_symbol = '[](bold fg:creen)'
 vimcmd_replace_one_symbol = '[](bold fg:purple)'
 vimcmd_replace_symbol = '[](bold fg:purple)'
 vimcmd_visual_symbol = '[](bold fg:lavender)'
+

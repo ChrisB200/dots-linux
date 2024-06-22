@@ -18,6 +18,9 @@ return require('packer').startup(function(use)
     -- Discord rich presence
     use 'andweeb/presence.nvim'
 
+    -- Linter and Formatter
+    use "nvimtools/none-ls.nvim"
+
     -- Command Auto complete
     use 'gelguy/wilder.nvim'
 
