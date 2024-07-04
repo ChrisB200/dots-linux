@@ -1,9 +1,9 @@
 local ensure_packer = function()
     local fn = vim.fn
-    local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+    local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
     if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-        vim.cmd [[packadd packer.nvim]]
+        fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+        vim.cmd([[packadd packer.nvim]])
         return true
     end
     return false
@@ -11,28 +11,22 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-return require('packer').startup(function(use)
+return require("packer").startup(function(use)
     -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+    use("wbthomason/packer.nvim")
 
     -- Discord rich presence
-    use 'andweeb/presence.nvim'
+    use("andweeb/presence.nvim")
 
     -- Linter and Formatter
-    use "nvimtools/none-ls.nvim"
+    use("nvimtools/none-ls.nvim")
 
     -- Command Auto complete
-    use 'gelguy/wilder.nvim'
+    use("gelguy/wilder.nvim")
 
-    -- terminal
-    use "akinsho/toggleterm.nvim"
+    use("sheerun/vim-polyglot")
 
-    -- context aware hovers
-    use "lewis6991/hover.nvim"
-
-    use 'sheerun/vim-polyglot'
-
-    use 'windwp/nvim-autopairs'
+    use("windwp/nvim-autopairs")
 
     -- The breadcrumbs
     use({
@@ -56,74 +50,40 @@ return require('packer').startup(function(use)
             require("galaxyline.themes.eviline")
         end,
         -- some optional icons
-        requires = { "kyazdani42/nvim-web-devicons", opt = true }
+        requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
 
     -- Telescope plugin
-    use {
-        'nvim-lua/plenary.nvim',
-        'nvim-lua/popup.nvim',
-        'nvim-telescope/telescope.nvim', tag = '0.1.5',
-        'nvim-telescope/telescope-media-files.nvim',
+    use({
+        "nvim-lua/plenary.nvim",
+        "nvim-lua/popup.nvim",
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.5",
+        "nvim-telescope/telescope-media-files.nvim",
+        "nvim-telescope/telescope-ui-select.nvim",
         -- or                            , branch = '0.1.x',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
+        requires = { { "nvim-lua/plenary.nvim" } },
+    })
 
     -- Colour Scheme
-    use { "catppuccin/nvim", as = "catppuccin" }
-    vim.cmd("colorscheme catppuccin")
+    use({ "catppuccin/nvim", as = "catppuccin" })
 
-    -- These optional plugins should be loaded directly because of a bug in Packer lazy loading
-    use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
+    use("lewis6991/gitsigns.nvim")
 
-    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-    use('theprimeagen/harpoon')
-    use('mbbill/undotree')
-    use('tpope/vim-fugitive')
+    use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
+    use("theprimeagen/harpoon")
+    use("mbbill/undotree")
+    use("tpope/vim-fugitive")
 
-    -- Installation
-    use { 'L3MON4D3/LuaSnip' }
-    use {
-        'hrsh7th/nvim-cmp',
-        config = function ()
-            require'cmp'.setup {
-                snippet = {
-                    expand = function(args)
-                        require'luasnip'.lsp_expand(args.body)
-                    end
-                },
-
-                sources = {
-                    { name = 'luasnip' },
-                    -- more sources
-                },
-            }
-        end
-    }
-    use "rafamadriz/friendly-snippets"
-    use { 'saadparwaiz1/cmp_luasnip' }
-    use {
+    use("rafamadriz/friendly-snippets")
+    use({
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-    }
+        "neovim/nvim-lspconfig",
+        "hrsh7th/nvim-cmp",
+    })
 
-    use {
+    use({
         "ray-x/lsp_signature.nvim",
-    }
-    use {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v3.x',
-        requires = {
-            --- Uncomment the two plugins below if you want to manage the language servers from neovim
-            -- {'williamboman/mason.nvim'},
-            -- {'williamboman/mason-lspconfig.nvim'},
-
-            -- LSP Support
-            {'neovim/nvim-lspconfig'},
-            -- Autocompletion
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'L3MON4D3/LuaSnip'},
-        }
-    }
+    })
 end)
