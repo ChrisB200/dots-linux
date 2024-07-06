@@ -72,5 +72,6 @@ local cfg = {
 	-- <M-d> and <M-u> are default keymaps to move cursor up and down
 }
 
+
 -- recommended:
 require("lsp_signature").setup(cfg) -- no need to specify bufnr if you don't use toggle_key

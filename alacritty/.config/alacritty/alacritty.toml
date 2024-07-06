@@ -1,9 +1,12 @@
 import = [
-  "~/.config/alacritty/catppuccin-mocha.toml"
+  "~/.config/alacritty/themes/themes/rose-pine.toml"
 ]
 
 [env]
 TERM = "xterm-256color"
+
+[window]
+padding = {x=15, y=15}
 
 [font]
 size = 8.0
@@ -23,3 +26,6 @@ style = "Italic"
 [font.normal]
 family = "JetBrainsMono Nerd Font Mono"
 style = "Regular"
+
+[cursor]
+style = {shape = "Beam", blinking = "On"}
