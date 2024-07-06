@@ -7,6 +7,15 @@ local lspconfig = require("lspconfig")
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require("luasnip/loaders/from_vscode").load()
 
+local on_attach = function(client, bufnr)
+    -- Example key bindings
+    local opts = { noremap=true, silent=true }
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<Cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    -- Add more as needed
+end
+
 lspconfig.lua_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities
@@ -15,12 +24,22 @@ lspconfig.gdscript.setup({
 	on_attach = on_attach,
 	capabilities = capabilities
 })
-lspconfig.pylsp.setup({
+lspconfig.clangd.setup({
+	on_attach = on_attach,
 	capabilities = capabilities
 })
-
-vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+lspconfig.bashls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities
+})
+lspconfig.ruby_lsp.setup({
+	on_attach = on_attach,
+	capabilities = capabilities
+})
+lspconfig.tsserver.setup({
+	on_attach = on_attach,
+	capabilities = capabilities
+})
 
 -- Configure diagnostic signs
 local signs = { Error = "✗ ", Warn = " ", Hint = " ", Info = " " }

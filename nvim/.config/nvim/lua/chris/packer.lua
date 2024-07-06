@@ -96,4 +96,5 @@ return require("packer").startup(function(use)
 
 	-- LSP autocomplete
 	use("ray-x/lsp_signature.nvim")
+
 end)
