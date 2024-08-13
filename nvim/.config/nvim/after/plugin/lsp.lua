@@ -4,41 +4,61 @@ require("mason-lspconfig").setup({
 })
 
 local lspconfig = require("lspconfig")
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-require("luasnip/loaders/from_vscode").load()
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+
+-- load snippets from path/of/your/nvim/config/my-cool-snippets
+require("luasnip.loaders.from_vscode").load({ paths = { "~/.config/nvim/snippets/vscode" } })
 
 local on_attach = function(client, bufnr)
-    -- Example key bindings
-    local opts = { noremap=true, silent=true }
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<Cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    -- Add more as needed
+	-- Example key bindings
+	local opts = { noremap = true, silent = true }
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<Cmd>lua vim.lsp.buf.rename()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+	-- Add more as needed
 end
 
 lspconfig.lua_ls.setup({
 	on_attach = on_attach,
-	capabilities = capabilities
+	capabilities = capabilities,
 })
 lspconfig.gdscript.setup({
 	on_attach = on_attach,
-	capabilities = capabilities
+	capabilities = capabilities,
 })
 lspconfig.clangd.setup({
 	on_attach = on_attach,
-	capabilities = capabilities
+	capabilities = capabilities,
 })
 lspconfig.bashls.setup({
 	on_attach = on_attach,
-	capabilities = capabilities
+	capabilities = capabilities,
 })
 lspconfig.ruby_lsp.setup({
 	on_attach = on_attach,
-	capabilities = capabilities
+	capabilities = capabilities,
 })
 lspconfig.tsserver.setup({
 	on_attach = on_attach,
-	capabilities = capabilities
+	capabilities = capabilities,
+})
+lspconfig.pylsp.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+lspconfig.cmake.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+lspconfig.emmet_language_server.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+lspconfig.html.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
 })
 
 -- Configure diagnostic signs

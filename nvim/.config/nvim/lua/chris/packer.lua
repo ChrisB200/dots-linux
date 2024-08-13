@@ -97,4 +97,16 @@ return require("packer").startup(function(use)
 	-- LSP autocomplete
 	use("ray-x/lsp_signature.nvim")
 
+	-- TMUX Navigator
+	use("christoomey/vim-tmux-navigator")
+
+	-- Debug adapter
+	use({
+		"rcarriga/nvim-dap-ui",
+		requires = { "mfussenegger/nvim-dap" },
+	})
+
+	use("theHamsta/nvim-dap-virtual-text")
+	use("nvim-neotest/nvim-nio")
+	use("mfussenegger/nvim-dap-python")
 end)
