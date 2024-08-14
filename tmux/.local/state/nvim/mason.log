@@ -1,2 +1,0 @@
-[INFO  Tue Aug 13 21:28:58 2024] ...acker/start/mason.nvim/lua/mason-core/installer/init.lua:184: Executing installer for Package(name=lua-language-server) {}
-[INFO  Tue Aug 13 21:29:02 2024] ...acker/start/mason.nvim/lua/mason-core/installer/init.lua:245: Installation succeeded for Package(name=lua-language-server)

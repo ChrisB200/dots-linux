@@ -1,8 +1,0 @@
-ERROR | vscode-loader: Could not parse file /home/chris/dotfiles/nvim/.config/nvim/snippets/vscode/pygame.json: Expected object key string but found invalid token at character 3
-ERROR | vscode-loader: Reading json from file `/home/chris/dotfiles/nvim/.config/nvim/snippets/vscode/pygame.json` failed, skipping it.
-ERROR | vscode-loader: Could not parse file /home/chris/dotfiles/nvim/.config/nvim/snippets/vscode/pygame.json: Expected object key string but found invalid token at character 3
-ERROR | vscode-loader: Reading json from file `/home/chris/dotfiles/nvim/.config/nvim/snippets/vscode/pygame.json` failed, skipping it.
-ERROR | vscode-loader: Could not parse file /home/chris/dotfiles/nvim/.config/nvim/snippets/vscode/pygame.json: Expected object key string but found invalid token at character 3
-ERROR | vscode-loader: Reading json from file `/home/chris/dotfiles/nvim/.config/nvim/snippets/vscode/pygame.json` failed, skipping it.
-ERROR | vscode-loader: Could not parse file /home/chris/dotfiles/nvim/.config/nvim/snippets/vscode/pygame.json: Expected object key string but found invalid token at character 3
-ERROR | vscode-loader: Reading json from file `/home/chris/dotfiles/nvim/.config/nvim/snippets/vscode/pygame.json` failed, skipping it.
