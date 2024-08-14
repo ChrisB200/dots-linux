@@ -1,11 +1,21 @@
 require("mason").setup({})
 require("mason-lspconfig").setup({
-	ensure_installed = { "lua_ls" },
+	ensure_installed = {
+		"lua_ls",
+		"bashls",
+		"pylsp",
+		"cmake",
+		"cssls",
+		"dockerls",
+		"emmet_language_server",
+		"html",
+		"tsserver",
+		"clangd"
+	},
 })
 
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 
 -- load snippets from path/of/your/nvim/config/my-cool-snippets
 require("luasnip.loaders.from_vscode").load({ paths = { "~/.config/nvim/snippets/vscode" } })
