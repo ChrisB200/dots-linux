@@ -9,7 +9,7 @@ export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 export PATH="$HOME/.local/bin:$PATH"
 
 # Plugins
-plugins=(git zsh-autosuggestions fast-syntax-highlighting)
+plugins=(git zsh-autosuggestions fast-syntax-highlighting zsh-autocomplete)
 source $ZSH/oh-my-zsh.sh
 
 eval "$(starship init zsh)"
