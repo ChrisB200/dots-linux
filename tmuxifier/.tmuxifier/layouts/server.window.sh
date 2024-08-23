@@ -21,5 +21,4 @@ run_cmd "cd react-app"
 run_cmd "npm start"
 
 select_pane 2
-run_cmd "mysql -u admin -ppassword -D dbfinance"
-
+run_cmd 'mariadb -h 92.236.134.121 -u remote -D dbfinance -p'

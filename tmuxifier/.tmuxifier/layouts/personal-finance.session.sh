@@ -12,9 +12,14 @@ if initialize_session "personal-finance"; then
   load_window "server"
 
   new_window "worker"
+  split_h 70
+  select_pane 0
   run_cmd "conda activate personal-finance-worker"
   run_cmd "cd worker"
   run_cmd "nvim ."
+  select_pane 1
+  run_cmd "cd worker"
+  run_cmd "conda activate personal-finance-worker"
 
   new_window "git"
   run_cmd "lazygit"
