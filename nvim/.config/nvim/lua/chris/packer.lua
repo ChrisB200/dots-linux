@@ -20,6 +20,7 @@ return require("packer").startup(function(use)
 
 	-- Linter and Formatter
 	use("nvimtools/none-ls.nvim")
+	use("jay-babu/mason-null-ls.nvim")
 
 	-- Command Auto complete
 	use("gelguy/wilder.nvim")
@@ -97,8 +98,17 @@ return require("packer").startup(function(use)
 	-- LSP autocomplete
 	use("ray-x/lsp_signature.nvim")
 
+	-- auto tags
+	use ("windwp/nvim-ts-autotag")
+
 	-- TMUX Navigator
 	use("christoomey/vim-tmux-navigator")
+
+	-- Smooth Scroll
+	use("karb94/neoscroll.nvim")
+
+	-- SSH
+	use("nosduco/remote-sshfs.nvim")
 
 	-- Debug adapter
 	use({

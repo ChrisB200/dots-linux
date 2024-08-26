@@ -10,7 +10,7 @@ require("mason-lspconfig").setup({
 		"emmet_language_server",
 		"html",
 		"tsserver",
-		"clangd"
+		"clangd",
 	},
 })
 
@@ -67,6 +67,10 @@ lspconfig.emmet_language_server.setup({
 	capabilities = capabilities,
 })
 lspconfig.html.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+lspconfig.cssls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
