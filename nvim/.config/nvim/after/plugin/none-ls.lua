@@ -5,6 +5,7 @@ mason_null_ls.setup({
 	ensure_installed = {
 		"stylua",
 		"black",
+		"jsonnetfmt",
 		"prettier"
 	}
 })
@@ -14,6 +15,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.prettier,
+		null_ls.builtins.formatting.jsonnetfmt
 	},
 	vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format, {}),
 })
