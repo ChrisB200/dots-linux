@@ -9,7 +9,7 @@ require("mason-lspconfig").setup({
 		"dockerls",
 		"emmet_language_server",
 		"html",
-		"tsserver",
+		"ts_ls",
 		"clangd",
 	},
 })
@@ -50,7 +50,7 @@ lspconfig.ruby_lsp.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
