@@ -9,6 +9,7 @@ require("mason-lspconfig").setup({
 		"dockerls",
 		"emmet_language_server",
 		"html",
+		"jdtls",
 		"ts_ls",
 		"clangd",
 	},
@@ -34,6 +35,10 @@ lspconfig.lua_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
+lspconfig.jdtls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
 lspconfig.gdscript.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -41,6 +46,7 @@ lspconfig.gdscript.setup({
 lspconfig.clangd.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	cmd = { "clangd", "--compile-commands-dir=build" },
 })
 lspconfig.bashls.setup({
 	on_attach = on_attach,

@@ -23,6 +23,7 @@ HISTFILE=~/.zsh_history
 
 # NVIM
 export EDITOR='nvim'
+export PATH="$HOME/.tmuxifier/bin:$PATH"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
