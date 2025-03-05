@@ -80,7 +80,10 @@ lspconfig.cssls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
-
+lspconfig.glslls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
 -- Configure diagnostic signs
 local signs = { Error = "✗ ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
