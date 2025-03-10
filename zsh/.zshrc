@@ -57,3 +57,4 @@ function yy() {
 
 export PATH=$PATH:/home/chris/.spicetify
 
+export TERM=xterm-256color

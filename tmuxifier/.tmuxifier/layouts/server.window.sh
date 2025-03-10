@@ -11,7 +11,7 @@ split_h 50
 split_v 50
 
 select_pane 0
-run_cmd "conda activate personal-finance-api"
+run_cmd "conda activate cache-api"
 run_cmd "cd api"
 run_cmd "python main.py"
 split_v 50
