@@ -99,7 +99,7 @@ return require("packer").startup(function(use)
 	use("ray-x/lsp_signature.nvim")
 
 	-- auto tags
-	use ("windwp/nvim-ts-autotag")
+	use("windwp/nvim-ts-autotag")
 
 	-- TMUX Navigator
 	use("christoomey/vim-tmux-navigator")
@@ -119,4 +119,5 @@ return require("packer").startup(function(use)
 	use("theHamsta/nvim-dap-virtual-text")
 	use("nvim-neotest/nvim-nio")
 	use("mfussenegger/nvim-dap-python")
+	use("norcalli/nvim-colorizer.lua")
 end)

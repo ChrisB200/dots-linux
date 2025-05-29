@@ -9,9 +9,9 @@ require("mason-lspconfig").setup({
 		"dockerls",
 		"emmet_language_server",
 		"html",
-		"jdtls",
 		"ts_ls",
 		"clangd",
+		"tailwindcss"
 	},
 })
 
@@ -32,10 +32,6 @@ local on_attach = function(client, bufnr)
 end
 
 lspconfig.lua_ls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-lspconfig.jdtls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
@@ -81,6 +77,10 @@ lspconfig.cssls.setup({
 	capabilities = capabilities,
 })
 lspconfig.glslls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+lspconfig.tailwindcss.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
