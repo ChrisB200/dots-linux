@@ -4,6 +4,14 @@ export ZSH="$HOME/.oh-my-zsh"
 # No theme since using starship
 ZSH_THEME=""
 
+# Path to your Pure prompt functions
+fpath+=$HOME/.zsh/functions
+
+# Load Pure
+fpath+=$HOME/.zsh/functions
+autoload -U promptinit; promptinit
+prompt pure
+
 # Fixes conda error
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 export PATH="$HOME/.local/bin:$PATH"
@@ -11,8 +19,6 @@ export PATH="$HOME/.local/bin:$PATH"
 # Plugins
 plugins=(git zsh-autosuggestions fast-syntax-highlighting zsh-autocomplete)
 source $ZSH/oh-my-zsh.sh
-
-eval "$(starship init zsh)"
 
 # Aliases
 alias ls="eza --icons --colour -G -l -ahB"
