@@ -7,8 +7,8 @@ local ensure_installed = {
   "dockerls",
   "emmet_language_server",
   "html",
-  "ts_ls",
   "clangd",
+  "ts_ls",
   "tailwindcss",
 }
 
@@ -17,15 +17,15 @@ return {
     "williamboman/mason.nvim",
     config = function()
       require("mason").setup()
-    end
+    end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = ensure_installed
+        ensure_installed = ensure_installed,
       })
-    end
+    end,
   },
   {
     "neovim/nvim-lspconfig",
@@ -37,25 +37,36 @@ return {
       local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      local on_attach = function(client, buffer)
-        local opts = { noremap = true, silent = true }
-        vim.api.nvim_buf_set_keymap(buffer, "n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
-        vim.api.nvim_buf_set_keymap(buffer, "n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
-        vim.api.nvim_buf_set_keymap(buffer, "n", "<leader>rn", "<Cmd>lua vim.lsp.buf.rename()<CR>", opts)
-        vim.api.nvim_buf_set_keymap(buffer, "n", "<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-      end
-      
-      local function setup_servers()
-        local installed = require("mason-lspconfig").get_installed_servers()
-        for _, server in ipairs(installed) do
-          lspconfig[server].setup({
-            on_attach = on_attach,
-            capabilities = capabilities
-          })
-        end
+      local on_attach = function(client, bufnr)
+        local opts = { buffer = bufnr, silent = true, noremap = true }
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
       end
 
-      setup_servers()
-    end
-  }
+      local installed = require("mason-lspconfig").get_installed_servers()
+
+      for _, server in ipairs(installed) do
+        local opts = {
+          on_attach = on_attach,
+          capabilities = capabilities,
+        }
+
+        -- Custom config for specific servers
+        if server == "lua_ls" then
+          opts.settings = {
+            Lua = {
+              diagnostics = {
+                globals = { "vim" },
+              },
+            },
+          }
+        end
+
+        lspconfig[server].setup(opts)
+      end
+    end,
+  },
 }
+
