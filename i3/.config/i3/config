@@ -1,3 +1,6 @@
+exec_always --no-startup-id setxkbmap -option caps:escape
+exec --no-startup-id xmodmap ~/.Xmodmap
+
 set $mod Mod4
 
 ######## startup programs ########
@@ -24,6 +27,7 @@ exec --no-startup-id nm-applet
 
 bindsym $mod+space exec rofi -show combi
 bindsym Print exec maim -s -u | xclip -selection clipboard -t image/png -i
+
 
 # vim direction keys
 set $left h
@@ -54,10 +58,10 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -66,10 +70,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -78,7 +82,6 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v

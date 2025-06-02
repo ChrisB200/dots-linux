@@ -1,16 +1,14 @@
+# Load Pure
+fpath+=("$HOME/.zsh/functions")
+autoload -U promptinit prompt_pure_setup
+promptinit
+prompt_pure_setup
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # No theme since using starship
 ZSH_THEME=""
-
-# Path to your Pure prompt functions
-fpath+=$HOME/.zsh/functions
-
-# Load Pure
-fpath+=$HOME/.zsh/functions
-autoload -U promptinit; promptinit
-prompt pure
 
 # Fixes conda error
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
@@ -64,3 +62,8 @@ function yy() {
 export PATH=$PATH:/home/chris/.spicetify
 
 export TERM=xterm-256color
+
+# noise torch
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
