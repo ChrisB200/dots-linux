@@ -4,6 +4,11 @@ autoload -U promptinit prompt_pure_setup
 promptinit
 prompt_pure_setup
 
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
+export QT_SCALE_FACTOR=2
+
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -14,8 +19,12 @@ ZSH_THEME=""
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 export PATH="$HOME/.local/bin:$PATH"
 
+# zsh completions
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+autoload -U compinit && compinit
+
 # Plugins
-plugins=(git zsh-autosuggestions fast-syntax-highlighting )
+plugins=(git zsh-autosuggestions fast-syntax-highlighting zsh-autocomplete )
 source $ZSH/oh-my-zsh.sh
 
 # Aliases
@@ -27,7 +36,10 @@ HISTFILE=~/.zsh_history
 
 # NVIM
 export EDITOR='nvim'
+
+# tmuxifier
 export PATH="$HOME/.tmuxifier/bin:$PATH"
+eval "$(tmuxifier init -)"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -58,6 +70,9 @@ function yy() {
 	fi
 	rm -f -- "$tmp"
 }
+
+# redis cli completions
+compdef '_dispatch redis-cli_completion redis-cli' valkey-cli
 
 export PATH=$PATH:/home/chris/.spicetify
 

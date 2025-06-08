@@ -7,13 +7,13 @@ set $mod Mod4
 
 # polybar startup
 exec_always killall polybar
-exec_always --no-startup-id ~/.config/launch_polybar.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # picom startup
 exec --no-startup-id picom
 
 # load wallpaper
-exec_always feh --bg-scale ~/backgrounds/cool-bg-3.jpg
+exec_always feh --bg-scale ~/backgrounds/od_botw.jpg
 
 # load gb keyboard
 exec_always --no-startup-id setxkbmap -layout gb
@@ -25,7 +25,13 @@ exec --no-startup-id nm-applet
 
 ########## key bindings ########## 
 
-bindsym $mod+space exec rofi -show combi
+# run rofi programs
+bindsym $mod+space exec "rofi -show drun -no-default-config -config ~/.config/rofi/sidebar.rasi"
+bindsym $mod+d exec "rofi -show drun -no-default-config -config ~/.config/rofi/center.rasi"
+bindsym $mod+s exec "rofi -show drun -no-default-config -config ~/.config/rofi/compact.rasi"
+bindsym $mod+z exec "rofi -show  -modi ':rofi-bookmarks' -no-default-config -config ~/.config/rofi/compact.rasi"
+bindsym $mod+x exec "theme"
+bindsym $mod+c exec "rofi-screenshot"
 bindsym Print exec maim -s -u | xclip -selection clipboard -t image/png -i
 
 
@@ -168,8 +174,9 @@ default_border pixel 1
 default_floating_border pixel 1
 
 #gaps
-gaps outer 3
-gaps inner 3
+gaps inner 8
+gaps outer 20
+gaps top 50
 
 ########## colour scheme (rose pine) ##########
 
@@ -192,26 +199,13 @@ set $highlighthigh  #524f67
 
 # Teming border and Windows --------------
 # target                 title     bg    text   indicator  border
-client.focused           $rose     $base $text  $rose      $rose
-client.focused_inactive  $text     $base $text  $subtle    $surface
-client.unfocused         $text     $base $text  $overlay   $overlay
-client.urgent            $text     $base $text  $love      $love
-client.placeholder       $base     $base $text  $overlay   $overlay
-client.background        $base
+client.focused #343746 #343746 #F8F8F2 #343746 #343746
+client.focused_inactive #343746 #343746 #F8F8F2 #21222C #21222C
+client.unfocused #343746 #343746 #F8F8F2 #21222C #21222C
 
 
 ########## default window styling ##########
 
 # styling windows
-for_window [class="gnome-(calendar|calculator|power-statistics|control-center)"] floating enable
-for_window [class="org.gnome.(Nautilus|Weather)"] floating enable
-for_window [class="(pavucontrol|psensor)"] floating enable
-for_window [class="nemo"] floating disable
-for_window [class="mpv"] floating enable
-for_window [class="mpv"] resize set 960 540
-for_window [class="mpv"] border pixel 0
-for_window [class="firefox" title="Firefox — Sharing Indicator"] floating enable
-for_window [class="firefox" title="Picture-in-Picture"] floating enable
-for_window [class="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
-for_window [class="firefox" title="About Mozilla Firefox"] floating enable
-for_window [title="Picture-in-picture"] floating enable
+for_window [class=".*"] floating enable
+for_window [class=".*"] move position center
