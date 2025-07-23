@@ -1,8 +1,9 @@
 # Load Pure
-fpath+=("$HOME/.zsh/functions")
-autoload -U promptinit prompt_pure_setup
-promptinit
-prompt_pure_setup
+fpath+=("$HOME/.zsh/zsh-async")
+fpath+=("$HOME/.zsh/pure")
+
+autoload -U promptinit; promptinit
+prompt pure
 
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
@@ -82,3 +83,12 @@ export TERM=xterm-256color
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+#pyenv
+eval "$(pyenv init - zsh)"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+
+# homebrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+
