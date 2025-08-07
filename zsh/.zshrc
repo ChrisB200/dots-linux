@@ -85,10 +85,14 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 #pyenv
-eval "$(pyenv init - zsh)"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 
 # homebrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+export DOCKER_HOST=unix:///var/run/docker.sock
 
 
